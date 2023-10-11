@@ -32,4 +32,4 @@ jobs:
           aws-region: eu-west-1
       - name: Copy files to the test website with the AWS CLI
         run: |
-          aws s3 sync dist s3://react-github123
+          aws s3 sync dist s3://react-github123 
