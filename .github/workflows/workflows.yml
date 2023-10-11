@@ -29,6 +29,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::195499181160:role/github
+          role-session-name: samplerolesession
           aws-region: eu-west-1
       - name: Copy files to the test website with the AWS CLI
         run: |
