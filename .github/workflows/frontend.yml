@@ -19,9 +19,27 @@ jobs:
           node-version: '14' # specify your node version
 
       - name: Install dependencies
-        run: npm install  > test-results.txt
+        run: npm install
 
       - name: Build the project
         run: npm run build
-      - name : show npm results from test-result.txt  
-        run : cat test-results.txt
+
+      - name: Run tests and save results
+        run: npm run test > test-results.txt
+
+      - name: Show test results
+        run: cat test-results.txt
+
+      - name: Send Test Results Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASS }}
+          subject: Unit Test Results
+          to: lijo@siterx.com
+          from: ${{ secrets.EMAIL_USER }}
+          content_type: text/plain
+          body: "Here are the test results:"
+          attachments: test-results.txt
