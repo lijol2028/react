@@ -19,7 +19,8 @@ jobs:
           node-version: '14' # specify your node version
 
       - name: Install dependencies
-        run: npm install
+        run: npm install  > test-results.txt
 
       - name: Build the project
         run: npm run build
+      - name : show npm results from test-result.txt  
