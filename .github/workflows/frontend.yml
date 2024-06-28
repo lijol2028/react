@@ -40,7 +40,7 @@ jobs:
           subject: Unit Test Results
           to: lijo@siterx.com
           #from: ${{ secrets.EMAIL_USER }}
-          from: user@siterx.com
+          from: lijo@siterx.com
           content_type: text/plain
           body: "Here are the test results:"
           attachments: test-results.txt
